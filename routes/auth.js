@@ -62,7 +62,7 @@ router.post('/register', async (req, res) => {
         const verificationExpires = new Date(Date.now() + 15 * 60 * 1000 );
 
        const userResult = await pool.query(
-           `INSERT INTO users(name, email, password_hash, verification_token, verification_expires) VALUES
+           `INSERT INTO users(name, email, password_hash, verification_token, verification_expires_at) VALUES
            ($1, $2, $3, $4, $5) RETURNING id, name, email`,
 
     [ name,  email,  passwordHash, verificationToken, verificationExpires ]
