@@ -22,6 +22,40 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/db-test', async (req, res) => {
+
+    try {
+
+        const result = await pool.query('SELECT NOW()');
+
+        res.json({
+
+            message: 'Database connection works',
+
+            time: result.rows[0]
+
+        });
+
+    } catch (error) {
+
+        console.error('DB TEST ERROR:', error);
+
+        res.status(500).json({
+
+            message: 'Database connection failed',
+
+            code: error.code,
+
+            errno: error.errno,
+
+            detail: error.message
+
+        });
+
+    }
+
+});
+
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/transaction', transactionRoutes)
