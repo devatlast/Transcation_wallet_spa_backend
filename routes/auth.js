@@ -231,7 +231,7 @@ router.get('/verify/:token', async (req, res) => {
 
              WHERE verification_token = $1
 
-             AND verification_expires > NOW()`,
+             AND verification_expires_at > NOW()`,
 
             [token]
 
@@ -259,7 +259,7 @@ router.get('/verify/:token', async (req, res) => {
 
                 verification_token = NULL,
 
-                verification_expires = NULL
+                verification_expires_at = NULL
 
              WHERE id = $1`,
 
