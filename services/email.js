@@ -18,7 +18,7 @@ async function sendVerificationEmail(email, token) {
 
     const verificationLink =
 
-        `http://localhost:3000/auth/verify/${token}`;
+        `https://transcation-wallet-spa-backend.vercel.app/auth/verify/${token}`;
 
     await transporter.sendMail({
 
