@@ -34,7 +34,7 @@ async function sendVerificationEmail(email, token) {
 
             <p>
 
-                Please verify your email address.
+                Please verify your email address to continue.
 
             </p>
 
